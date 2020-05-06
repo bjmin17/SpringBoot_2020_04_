@@ -28,7 +28,7 @@ public class BBsController {
 	@RequestMapping(value = "/list",method = RequestMethod.GET)
 	public String list(@PageableDefault Pageable pageable, Model model) {
 		
-		Page<BBsVO> bbsList = bService.getBbsList(pageable);
+		Page<BBsVO> bbsList = bService.getPageBBsList(pageable);
 		model.addAttribute("bbsList",bbsList);
 		
 		return "bbsList";

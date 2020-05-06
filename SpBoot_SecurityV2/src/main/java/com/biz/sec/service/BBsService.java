@@ -1,5 +1,7 @@
 package com.biz.sec.service;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -16,7 +18,11 @@ public class BBsService {
 
 	private final BBsDao bDao;
 	
-	public Page<BBsVO> getBbsList(Pageable pageable) {
+	public void save(BBsVO bbsVO) {
+		bDao.save(bbsVO);
+	}
+	
+	public Page<BBsVO> getPageBBsList(Pageable pageable) {
 		
 		// 몇 페이지를 요청했는가?
 		int page = 0;
@@ -35,4 +41,8 @@ public class BBsService {
 		return pageBBsList;
 	}
 	
+	public List<BBsVO> getBBsList(){
+		List<BBsVO> bbsList = bDao.findAll();
+		return bbsList;
+	}
 }
