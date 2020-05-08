@@ -1,6 +1,7 @@
 package com.biz.sec.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -50,6 +51,26 @@ public class BBsService {
 		List<BBsVO> bbsList = bDao.findAll();
 		return bbsList;
 	
+	}
+
+	public BBsVO insert(BBsVO bbsVO) {
+		return bDao.save(bbsVO);
+	}
+
+	public Optional<BBsVO> findById(long id) {
+
+		Optional<BBsVO> bbsVO = bDao.findById(id);
+		return bbsVO;
+	}
+
+	public BBsVO update(BBsVO bbsVO) {
+		// TODO Auto-generated method stub
+		return bDao.save(bbsVO);
+	}
+
+	public void delete(long id) {
+		// TODO Auto-generated method stub
+		bDao.deleteById(id);
 	}
 	
 }

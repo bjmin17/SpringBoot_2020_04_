@@ -6,8 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.biz.sec.domain.UserVO;
 
-import jdk.nashorn.internal.runtime.FindProperty;
-
 public interface UserDao extends JpaRepository<UserVO, Long>{
 	
 	/*
